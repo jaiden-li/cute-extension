@@ -37,7 +37,6 @@ document.addEventListener('DOMContentLoaded', () => {
     label.htmlFor = id;
     label.textContent = text;
 
-    // Listen for check/uncheck to save the state
     checkbox.addEventListener('change', saveTasks);
 
     li.appendChild(checkbox);
