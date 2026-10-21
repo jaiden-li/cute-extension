@@ -2,41 +2,95 @@
 <html>
 <head>
   <meta charset="utf-8">
+  <!-- 1. Import a cute, rounded font from Google Fonts -->
+  <link rel="preconnect" href="https://googleapis.com">
+  <link rel="preconnect" href="https://gstatic.com" crossorigin>
+  <link href="https://googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+
   <style>
     body {
       width: 300px;
-      padding: 10px;
-      font-family: sans-serif;
+      padding: 15px;
+      background-color: #fff0f3; 
+      font-family: 'Nunito', sans-serif;
+      color: #4a3e41; 
     }
+
+    h3 {
+      margin-top: 0;
+      color: #ff758f; 
+    }
+
     .input-container {
       display: flex;
-      gap: 5px;
-      margin-bottom: 10px;
+      gap: 8px;
+      margin-bottom: 15px;
     }
+
     input[type="text"] {
       flex: 1;
-      padding: 5px;
+      padding: 8px;
+      border: 2px solid #ffccd5;
+      border-radius: 8px;
+      font-family: 'Nunito', sans-serif;
+      outline: none;
     }
+    
+    input[type="text"]:focus {
+      border-color: #ff758f;
+    }
+
+    /* 4. Style the button to match the pastel theme */
+    #add-btn {
+      padding: 8px 12px;
+      background-color: #ffb3c1;
+      border: none;
+      border-radius: 8px;
+      color: white;
+      font-family: 'Nunito', sans-serif;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    #add-btn:hover {
+      background-color: #ff758f;
+    }
+
     ul {
       list-style: none;
       padding: 0;
       margin: 0;
     }
+
     li {
-      margin-bottom: 6px;
+      margin-bottom: 8px;
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 10px;
+      background-color: rgba(255, 255, 255, 0.6); /* Semi-transparent white backing for tasks */
+      padding: 6px 10px;
+      border-radius: 8px;
     }
+
+    input[type="checkbox"] {
+      accent-color: #ff758f;
+      cursor: pointer;
+    }
+
+    label {
+      cursor: pointer;
+      flex: 1;
+    }
+
     input[type="checkbox"]:checked + label {
       text-decoration: line-through;
-      color: #888;
+      color: #c9bbc0;
     }
   </style>
 </head>
 <body>
 
-  <h3>what would you like to do today?</h3>
+  <h3>what would  you like to do today?</h3>
   
   <div class="input-container">
     <input type="text" id="task-input" placeholder="Type a new task...">
