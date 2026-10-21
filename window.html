@@ -1,11 +1,50 @@
 <!DOCTYPE html>
 <html>
 <head>
-<script src="background.js"></script>
+  <meta charset="utf-8">
+  <style>
+    body {
+      width: 300px;
+      padding: 10px;
+      font-family: sans-serif;
+    }
+    .input-container {
+      display: flex;
+      gap: 5px;
+      margin-bottom: 10px;
+    }
+    input[type="text"] {
+      flex: 1;
+      padding: 5px;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    li {
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    input[type="checkbox"]:checked + label {
+      text-decoration: line-through;
+      color: #888;
+    }
+  </style>
 </head>
 <body>
-<div>Hello!</div>
-<div>This is a Chrome Extension!</div>
-<div>And this is some html</div>
+
+  <h3>My Tasks</h3>
+  
+  <div class="input-container">
+    <input type="text" id="task-input" placeholder="Type a new task...">
+    <button id="add-btn">Add</button>
+  </div>
+
+  <ul id="checklist"></ul>
+
+  <script src="window.js"></script>
 </body>
 </html>
