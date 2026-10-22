@@ -1,15 +1,18 @@
+
 document.addEventListener('DOMContentLoaded', () => {
   const taskInput = document.getElementById('task-input');
   const addBtn = document.getElementById('add-btn');
   const checklist = document.getElementById('checklist');
 
+  const deleteCompletedBtn = document.getElementById('delete-completed-btn');
+
   chrome.storage.local.get({ tasks: [] }, (result) => {
     result.tasks.forEach(task => renderTask(task.text, task.checked));
   });
 
-
   addBtn.addEventListener('click', handleAddTask);
 
+  deleteCompletedBtn.addEventListener('click', deleteCompletedTasks);
 
   taskInput.addEventListener('keypress', (e) => {
     if (e.key === 'Enter') handleAddTask();
@@ -44,16 +47,31 @@ document.addEventListener('DOMContentLoaded', () => {
     checklist.appendChild(li);
   }
 
+  function deleteCompletedTasks() {
+    checklist.querySelectorAll('li').forEach(li => {
+      const checkbox = li.querySelector('input[type="checkbox"]');
+
+      if (checkbox.checked) {
+        li.remove();
+      }
+    });
+
+    saveTasks();
+  }
+
   function saveTasks() {
     const tasks = [];
+
     checklist.querySelectorAll('li').forEach(li => {
       const checkbox = li.querySelector('input[type="checkbox"]');
       const label = li.querySelector('label');
+
       tasks.push({
         text: label.textContent,
         checked: checkbox.checked
       });
     });
+
     chrome.storage.local.set({ tasks });
   }
 });
